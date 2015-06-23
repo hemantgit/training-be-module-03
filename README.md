@@ -7,7 +7,7 @@ You will create custom LDAP authentication configuration which will fetch users 
 
 ### Contents
 
-This module contains two components 
+This module contains the following components:
 
 1. security-ldap : LDAP integration module which allows to connect to Training Server LDAP during authentication. For details check 
 [security-ldap](https://github.com/Backbase/training-be-module-03/blob/code-migration/security-ldap/README.md).
