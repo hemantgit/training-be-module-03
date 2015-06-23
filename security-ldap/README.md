@@ -79,6 +79,7 @@ In this tutorial you will configure portal to communicate with LDAP server embed
 ### Build & Run
 
 - Build Portal module with executing `mvn clean install` command from *portal* directory.
+- Make sure that Training Server is running.
 - Start Portal application with executing `mvn jetty:run` command from *portal* directory.
 - Go to CXP Manager and create user group `employees`.
 - Create new portal and make sure `employees` group has access to it.
