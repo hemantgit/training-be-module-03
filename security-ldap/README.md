@@ -35,21 +35,13 @@ Follow the instructions that can be found here [training-server](https://github.
 	    </dependency>
 	```
 
-- **Configure Portal security.** Add following elements to the configuration into *[Your CXP Root]/portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml*
+- Configure Portal security. Add the following elements to the configuration into **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**:
 	```xml
-	        <!-- The LDAP context source -->
+	    <!-- The LDAP context source -->
             <beans:bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
                 <beans:constructor-arg value=" ldap://localhost:33389/dc=backbase,dc=com "/>
             </beans:bean>
 
-            <!-- Configure Authentication mechanism -->
-            <authentication-manager alias="authenticationManager">
-                <authentication-provider user-service-ref="portalUserDetailsService">
-                    <password-encoder ref="passwordEncoder"/>
-                </authentication-provider>
-                <authentication-provider ref="ldapAuthenticationProvider"/>
-            </authentication-manager>
-        
             <!--  The LDAP authentication provider configuration -->
             <beans:bean id="ldapAuthenticationProvider"
                         class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
@@ -82,6 +74,12 @@ Follow the instructions that can be found here [training-server](https://github.
                 </beans:property>
         
             </beans:bean>
+	```
+	
+	Include the following within the `<authentication-manager>` block:
+	
+	```xml
+        <authentication-provider ref="ldapAuthenticationProvider"/>
 	```
 
 ### Build & Run
