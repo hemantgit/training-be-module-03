@@ -37,43 +37,43 @@ Follow the instructions from [Training Server](https://github.com/Backbase/train
 
 - Configure Portal security. Open **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**, and add the following elements in the configuration:
 	```xml
-            <!-- The LDAP context source -->
-            <beans:bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
-                <beans:constructor-arg value=" ldap://localhost:33389/dc=backbase,dc=com "/>
-            </beans:bean>
+	<!-- The LDAP context source -->
+	<beans:bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
+	    <beans:constructor-arg value=" ldap://localhost:33389/dc=backbase,dc=com "/>
+	</beans:bean>
 
-            <!--  The LDAP authentication provider configuration -->
-            <beans:bean id="ldapAuthenticationProvider"
-                        class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
+	<!--  The LDAP authentication provider configuration -->
+	<beans:bean id="ldapAuthenticationProvider"
+	            class="org.springframework.security.ldap.authentication.LdapAuthenticationProvider">
         
-                <beans:constructor-arg>
-                    <beans:bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
-                        <beans:constructor-arg ref="ldapContextSource"/>
-                        <beans:property name="userSearch">
-                            <beans:bean class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
-                                <beans:constructor-arg index="0" value="ou=people"/>
-                                <beans:constructor-arg index="1" value="(uid={0})"/>
-                                <beans:constructor-arg index="2" ref="ldapContextSource"/>
-                            </beans:bean>
-                        </beans:property>
-                    </beans:bean>
-                </beans:constructor-arg>
+	    <beans:constructor-arg>
+	        <beans:bean class="org.springframework.security.ldap.authentication.BindAuthenticator">
+	            <beans:constructor-arg ref="ldapContextSource"/>
+	            <beans:property name="userSearch">
+	                <beans:bean class="org.springframework.security.ldap.search.FilterBasedLdapUserSearch">
+	                    <beans:constructor-arg index="0" value="ou=people"/>
+	                    <beans:constructor-arg index="1" value="(uid={0})"/>
+	                    <beans:constructor-arg index="2" ref="ldapContextSource"/>
+	                </beans:bean>
+	            </beans:property>
+	        </beans:bean>
+	    </beans:constructor-arg>
         
-                <beans:constructor-arg>
-                    <beans:bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
-                        <beans:constructor-arg ref="ldapContextSource"/>
-                        <beans:constructor-arg value="ou=groups"/>
-                    </beans:bean>
-                </beans:constructor-arg>
+	    <beans:constructor-arg>
+	        <beans:bean class="org.springframework.security.ldap.userdetails.DefaultLdapAuthoritiesPopulator">
+	            <beans:constructor-arg ref="ldapContextSource"/>
+	            <beans:constructor-arg value="ou=groups"/>
+	        </beans:bean>
+	    </beans:constructor-arg>
         
-                <beans:property name="userDetailsContextMapper">
-                    <beans:bean class="com.backbase.training.security.ldap.UserDetailsContextMapperImpl">
-                        <beans:constructor-arg ref="userService"/>
-                        <beans:constructor-arg ref="groupService"/>
-                    </beans:bean>
-                </beans:property>
+	    <beans:property name="userDetailsContextMapper">
+	        <beans:bean class="com.backbase.training.security.ldap.UserDetailsContextMapperImpl">
+	            <beans:constructor-arg ref="userService"/>
+	            <beans:constructor-arg ref="groupService"/>
+	        </beans:bean>
+	    </beans:property>
         
-            </beans:bean>
+	</beans:bean>
 	```
 	
 	Include `ldapAuthenticationProvider` in the `<authentication-manager>` block:
