@@ -9,13 +9,13 @@ In this tutorial you will configure portal to communicate with LDAP server embed
 ### Prerequisites
 
 You need to get a training server up and running before performing this excerise.
-Follow the instructions that can be found here [training-server](https://github.com/Backbase/training-server/tree/code-migration)
+Follow the instructions that can be found here:  [training-server](https://github.com/Backbase/training-server/tree/code-migration).
 
 ### Installation & Configuration
 
-- **Copy security-ldap from training-modules into the services folder of your Launchpad 0.12.x project.**
+- Copy **security-ldap** into the **services** folder of your Launchpad 0.12.x project.
 
-- **Include security-ldap module to the build.** Open `pom.xml` from *exercises-environment/services/*. Add `<module>security-ldap</module>` into  `<modules>` section
+- Include **security-ldap** module to the build.  Open `services/pom.xml` and add **security-ldap** in the `<modules>` section: 
 	```xml
 	    <modules>
 	        ...	    
@@ -25,7 +25,7 @@ Follow the instructions that can be found here [training-server](https://github.
 	```	
 	Re-compile **services** by executing `mvn clean install` in the **services** folder.
 	
-- **Enable newly created module in Portal application.** Add the following dependency to your `portal/pom.xml` file in `<dependencies>` section:
+- Enable newly created module in the Portal application. In the `<dependencies>` section of `portal/pom.xml`, add the following dependency:
 
 	```xml
 	    <dependency>
@@ -35,7 +35,7 @@ Follow the instructions that can be found here [training-server](https://github.
 	    </dependency>
 	```
 
-- Configure Portal security. Add the following elements to the configuration into **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**:
+- Configure Portal security. Open **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**, and add the following elements in the configuration:
 	```xml
 	    <!-- The LDAP context source -->
             <beans:bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
@@ -76,7 +76,7 @@ Follow the instructions that can be found here [training-server](https://github.
             </beans:bean>
 	```
 	
-	Include the following line within the `<authentication-manager>` block:
+	Include `ldapAuthenticationProvider` in the `<authentication-manager>` block:
 	
 	```xml
 	<authentication-manager>
@@ -88,10 +88,6 @@ Follow the instructions that can be found here [training-server](https://github.
 
 ### Build & Run
 
-- Build Portal module with executing `mvn clean install` command from *portal* directory.
-- Make sure that Training Server is running.
-- Start Portal application with executing `mvn jetty:run` command from *portal* directory.
-- Go to CXP Manager and create user group `employees`.
-- Create new portal and make sure `employees` group has access to it.
-- Create a page and place *Login* and *Profile Summary* widgets on it.
+- Start Portal application by executing `mvn jetty:run` command from the **portal** directory.
+- Make sure that the Training Server is running.
 - Login with user *john/backbase* and make sure that user is logged in.
