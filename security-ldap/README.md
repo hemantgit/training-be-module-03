@@ -79,7 +79,11 @@ Follow the instructions that can be found here [training-server](https://github.
 	Include the following within the `<authentication-manager>` block:
 	
 	```xml
-        <authentication-provider ref="ldapAuthenticationProvider"/>
+	<authentication-manager>
+	    ...
+            <authentication-provider ref="ldapAuthenticationProvider"/>
+            ...
+        </authentication-manager>
 	```
 
 ### Build & Run
