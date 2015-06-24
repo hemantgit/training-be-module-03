@@ -37,7 +37,7 @@ Follow the instructions from [Training Server](https://github.com/Backbase/train
 
 - Configure Portal security. Open **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**, and add the following elements in the configuration:
 	```xml
-	    <!-- The LDAP context source -->
+            <!-- The LDAP context source -->
             <beans:bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
                 <beans:constructor-arg value=" ldap://localhost:33389/dc=backbase,dc=com "/>
             </beans:bean>
