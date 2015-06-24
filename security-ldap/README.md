@@ -21,7 +21,7 @@ In this tutorial you will configure portal to communicate with LDAP server embed
 
 	```xml
 	    <dependency>
-	        <groupId>com.backbase.expert.training</groupId>
+	        <groupId>com.backbase.training</groupId>
 	        <artifactId>security-ldap</artifactId>
 	        <version>1.0-SNAPSHOT</version>
 	    </dependency>
