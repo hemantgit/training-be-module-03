@@ -2,14 +2,14 @@
 
 ## Portal Backend - Module 3: LDAP Integration
 
-This exercise is part of [Module 3: Security](https://github.com/Backbase/training-be-module-03/tree/code-migration)
+This exercise is part of [Module 3: Security](../../..)
 
 In this tutorial you will configure portal to communicate with LDAP server embedded into Training Server application.
 
 ### Prerequisites
 
 You need to get a training server up and running before performing this excerise.
-Follow the instructions from [Training Server](https://github.com/Backbase/training-server/tree/code-migration).
+Follow the instructions from [Training Server](https://github.com/Backbase/training-server).
 
 ### Installation & Configuration
 
