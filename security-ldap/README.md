@@ -88,6 +88,6 @@ Follow the instructions from [Training Server](https://github.com/Backbase/train
 
 ### Build & Run
 
-- Start Portal application by executing `mvn jetty:run` command from the **portal** directory.
+- If Portal application is already running, stop it by pressing *Ctrl+C*. Start Portal application by executing `mvn jetty:run` command from the **portal** directory.
 - Make sure that the Training Server is running.
 - Login with user *john/backbase* and make sure that user is logged in.
