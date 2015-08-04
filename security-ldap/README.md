@@ -8,7 +8,7 @@ In this tutorial you will configure portal to communicate with LDAP server embed
 
 ### Prerequisites
 
-You need to get a training server up and running before performing this excerise.
+You need to get a training server up and running before performing this excercise.
 Follow the instructions from [Training Server](https://github.com/Backbase/training-server).
 
 ### Installation & Configuration
