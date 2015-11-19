@@ -25,7 +25,7 @@ Follow the instructions from [Training Server](https://github.com/Backbase/train
 	```	
 	Re-compile **services** by executing `mvn clean install` in the **services** folder.
 	
-- Enable newly created module in the Portal application. In the `<dependencies>` section of `portal/pom.xml`, add the following dependency:
+- Enable newly created module in the Portal application. In the `<dependencies>` section of `webapps/portalserver/pom.xml`, add the following dependency:
 
 	```xml
 	    <dependency>
@@ -35,9 +35,9 @@ Follow the instructions from [Training Server](https://github.com/Backbase/train
 	    </dependency>
 	```
 
-- Configure Portal security. Open **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**.
+- Configure Portal security. Open **webapps/portalserver/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**.
 
-  > If the file can not be found, copy it from **webapps/portalserver/target/portalserver/WEB-INF/lib/security-portalserver-5.x.x.x.jar!/META-INF/spring/backbase-portal-business-security.xml**. If the **lib** folder does not exist, run the portal webapp using **mvn jetty:run-exploded**.
+  > If the file can not be found, copy it from **webapps/portalserver/target/portalserver/WEB-INF/lib/security-portalserver-5.x.x.x.jar!/META-INF/spring/backbase-portal-business-security.xml**. If the **lib** folder does not exist, run the portalserver webapp using **mvn jetty:run-exploded**.
 
   Add the following elements in the configuration:
 	```xml
