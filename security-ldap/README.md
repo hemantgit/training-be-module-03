@@ -35,7 +35,11 @@ Follow the instructions from [Training Server](https://github.com/Backbase/train
 	    </dependency>
 	```
 
-- Configure Portal security. Open **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**, and add the following elements in the configuration:
+- Configure Portal security. Open **portal/src/main/resources/META-INF/spring/backbase-portal-business-security.xml**.
+
+  > If the file can not be found, copy it from **webapps/portalserver/target/portalserver/WEB-INF/lib/security-portalserver-5.x.x.x.jar!/META-INF/spring/backbase-portal-business-security.xml**. If the **lib** folder does not exist, run the portal webapp using **mvn jetty:run-exploded**.
+
+  Add the following elements in the configuration:
 	```xml
 	<!-- The LDAP context source -->
 	<beans:bean id="ldapContextSource" class="org.springframework.security.ldap.DefaultSpringSecurityContextSource">
