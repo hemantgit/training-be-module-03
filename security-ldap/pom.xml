@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-ldap</artifactId>
-            <version>3.1.0.RELEASE</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- Logging -->
